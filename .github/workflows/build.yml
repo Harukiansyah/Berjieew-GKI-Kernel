@@ -3,6 +3,9 @@ permissions:
   contents: write
   actions: write
 
+env:
+  LOCALVERSION: "-Berjieew-GKI-Kernel"
+
 on:
   workflow_call:
     inputs:
