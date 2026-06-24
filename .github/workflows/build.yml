@@ -365,3 +365,12 @@ jobs:
         path: ${{ github.workspace }}/AnyKernel3/**
         if-no-files-found: ignore
         compression-level: 9
+        
+    - name: Upload Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          *AnyKernel3.zip
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
