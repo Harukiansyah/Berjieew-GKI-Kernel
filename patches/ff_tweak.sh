@@ -2,7 +2,7 @@
 # Masuk ke folder source code dulu!
 # Biasanya folder source code itu namanya 'common' atau 'android-kernel'
 # Coba cek di log sebelumnya, folder mana yang isinya file 'arch'
-cd common 
+cd kernel
 
 # Sekarang baru jalanin perintah echo lo
 echo "CONFIG_HZ_1000=y" >> arch/arm64/configs/gki_defconfig
