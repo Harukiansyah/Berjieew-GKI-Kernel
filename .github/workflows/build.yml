@@ -366,12 +366,19 @@ jobs:
         if-no-files-found: ignore
         compression-level: 9
         
-    - name: Upload Release
-      uses: softprops/action-gh-release@v1
+    - name: Pack Kernel
+      run: |
+          # (Ini contoh command packing, sesuaikan sama script lo)
+          cd AnyKernel3
+          zip -r9 Berjieew-GKI-v5.10.237.zip *
+          
+    - name: Upload Release Asset
+      uses: softprops/action-gh-release@v2
+      if: startsWith(github.ref, 'refs/tags/') # Opsional: Cuma jalan kalau nge-push tag
       with:
-        tag_name: Berjieew-GKI-v5.10.237-v1.${{ github.run_number }}
-        name: Berjieew GKI Kernel v5.10.237 v1.${{ github.run_number }}
-        files: |
-          **/*AnyKernel3*.zip
+          files: AnyKernel3/Berjieew-GKI-v5.10.237.zip # <-- Ini yang bikin file muncul di Assets
+          body: |
+            -> ✨ MAIN CHANGELOG :
+            -> Add some tweaks for game (Free Fire, CODM, Mobile Legends)
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
