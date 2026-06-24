@@ -369,8 +369,9 @@ jobs:
     - name: Upload Release
       uses: softprops/action-gh-release@v1
       with:
+        tag_name: Berjieew-GKI-v5.10.237-v1.${{ github.run_number }}
+        name: Berjieew GKI Kernel v5.10.237 v1.${{ github.run_number }}
         files: |
-          *AnyKernel3.zip
+          **/*AnyKernel3*.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
